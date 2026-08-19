@@ -15,5 +15,5 @@ Documentation = "https://github.com/nikaskeba/ComfyUI-H3-Reference-Library#readm
 "Bug Tracker" = "https://github.com/nikaskeba/ComfyUI-H3-Reference-Library/issues"
 
 [tool.comfy]
-PublisherId = "nikaskeba"
+PublisherId = "nicholasskeba"
 DisplayName = "H3 Reference Library"

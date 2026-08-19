@@ -103,7 +103,7 @@ Restart ComfyUI after updating backend files.
 
 The repository includes Comfy Registry metadata and a manual GitHub Actions publishing workflow. A maintainer must:
 
-1. Create the `nikaskeba` publisher at [Comfy Registry](https://registry.comfy.org/).
+1. Use the `nicholasskeba` publisher at [Comfy Registry](https://registry.comfy.org/).
 2. Create a Registry publishing API key for that publisher.
 3. Add the key to this GitHub repository as an Actions secret named `REGISTRY_ACCESS_TOKEN`.
 4. Run **Publish to Comfy Registry** from the repository Actions page.
