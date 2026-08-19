@@ -1,0 +1,19 @@
+[project]
+name = "h3-reference-library"
+version = "1.0.0"
+description = "Reusable tagged image and audio references for MiniMax H3 video workflows in ComfyUI"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = []
+classifiers = [
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/nikaskeba/ComfyUI-H3-Reference-Library"
+Documentation = "https://github.com/nikaskeba/ComfyUI-H3-Reference-Library#readme"
+"Bug Tracker" = "https://github.com/nikaskeba/ComfyUI-H3-Reference-Library/issues"
+
+[tool.comfy]
+PublisherId = "nikaskeba"
+DisplayName = "H3 Reference Library"

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>H3 Reference Library</title>
+    <link rel="stylesheet" href="/h3-references/static/manager.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>H3 Reference Library</h1>
+            <p id="library-count">Loading references...</p>
+        </div>
+        <div class="topbar-actions">
+            <label class="category-filter">
+                <span>Category</span>
+                <select id="category-filter">
+                    <option value="">All categories</option>
+                </select>
+            </label>
+            <label class="media-filter">
+                <span>Media</span>
+                <select id="media-filter">
+                    <option value="">All media</option>
+                    <option value="paired">Image + audio</option>
+                    <option value="image">Image only</option>
+                    <option value="audio">Audio only</option>
+                </select>
+            </label>
+            <label class="search-field">
+                <span>Search</span>
+                <input id="search" type="search" placeholder="Tag or description">
+            </label>
+            <button id="add-reference" class="primary" type="button">Add reference</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="import-panel" aria-labelledby="import-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="import-title">Bulk import</h2>
+                    <p>Matching image and audio filenames are paired into one editable tag.</p>
+                </div>
+                <button id="clear-drafts" class="secondary" type="button" hidden>Clear</button>
+            </div>
+            <label id="drop-zone" class="drop-zone">
+                <input id="bulk-files" type="file" accept="image/*,audio/*,.m4a,.opus,.flac" multiple>
+                <strong>Drop images and audio here</strong>
+                <span>or choose multiple files</span>
+            </label>
+            <div id="drafts" class="drafts" hidden></div>
+            <div id="draft-actions" class="draft-actions" hidden>
+                <span id="draft-summary"></span>
+                <button id="import-drafts" class="primary" type="button">Import references</button>
+            </div>
+        </section>
+
+        <section class="creator-panel" aria-labelledby="creator-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="creator-title">Reference creator</h2>
+                    <p>Select references below to build a category-grouped guide for writing your prompt.</p>
+                </div>
+                <div class="creator-actions">
+                    <button id="clear-selection" class="secondary" type="button" disabled>Clear selection</button>
+                    <button id="copy-selection" class="primary" type="button" disabled>Copy guide</button>
+                </div>
+            </div>
+            <div id="selection-empty" class="selection-empty">No references selected.</div>
+            <div id="selection-guide" class="selection-guide" hidden></div>
+        </section>
+
+        <section class="library-section" aria-labelledby="library-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="library-title">Managed references</h2>
+                    <p>Use a tag in braces in the ComfyUI node, for example <code>{news_anchor}</code>.</p>
+                </div>
+                <button id="refresh" class="secondary" type="button">Refresh</button>
+            </div>
+            <div id="empty-state" class="empty-state" hidden>No references match this view.</div>
+            <div id="records" class="category-groups"></div>
+        </section>
+    </main>
+
+    <dialog id="record-dialog">
+        <form id="record-form" method="dialog">
+            <div class="dialog-heading">
+                <div>
+                    <h2 id="dialog-title">Add reference</h2>
+                    <p>A record can contain an image, an audio clip, or both.</p>
+                </div>
+                <button id="close-dialog" class="icon-button" type="button" aria-label="Close">&#10005;</button>
+            </div>
+            <input id="record-id" type="hidden">
+            <label>Tag<input id="tag" name="tag" required pattern="[A-Za-z0-9_-]+" placeholder="news_anchor"></label>
+            <label>Library category
+                <select id="category" name="category" required></select>
+            </label>
+            <label id="new-category-row" hidden>New category
+                <input id="new-category" pattern="[A-Za-z0-9_-]+" placeholder="vehicle">
+            </label>
+            <datalist id="category-options"></datalist>
+            <div class="form-grid">
+                <fieldset>
+                    <legend>Image</legend>
+                    <label>Image file<input id="image-file" type="file" accept="image/*"></label>
+                    <label>Description<textarea id="image-description" rows="3" placeholder="A news anchor wearing a blue blazer"></textarea></label>
+                    <label id="remove-image-row" class="check-row" hidden><input id="remove-image" type="checkbox"> Remove current image</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Audio</legend>
+                    <label>Audio file<input id="audio-file" type="file" accept="audio/*,.m4a,.opus,.flac"></label>
+                    <label>Voice description<textarea id="audio-description" rows="3" placeholder="An American accent with a calm delivery"></textarea></label>
+                    <label id="remove-audio-row" class="check-row" hidden><input id="remove-audio" type="checkbox"> Remove current audio</label>
+                </fieldset>
+            </div>
+            <div class="dialog-actions">
+                <button id="cancel-dialog" class="secondary" type="button">Cancel</button>
+                <button id="save-record" class="primary" type="submit">Save reference</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/h3-references/static/manager.js"></script>
+</body>
+</html>
