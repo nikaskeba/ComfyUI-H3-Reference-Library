@@ -22,7 +22,7 @@ Clone the repository into `ComfyUI/custom_nodes`:
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/nikaskeba/ComfyUI-H3-Reference-Library.git
+git clone https://github.com/nikaskeba/ComfyUI-Minimax-H3-Reference-Library.git
 ```
 
 Restart ComfyUI after installation. No additional Python packages are required beyond the dependencies included with ComfyUI.
@@ -40,6 +40,8 @@ Restart ComfyUI after installation. No additional Python packages are required b
 
 5. Connect `prompt` to the MiniMax H3 prompt input.
 6. Connect `image_1` through `image_9` and `audio_1` through `audio_3` to the corresponding MiniMax H3 reference inputs.
+
+![H3 Tagged Reference Prompt connected to MiniMax H3 Reference to Video](media/reference-connection.png)
 
 The node resolves references in first-use order. Records containing both image and audio are prioritized before image-only and standalone-audio records.
 
@@ -59,6 +61,8 @@ When more than three paired voices are used, later characters retain their image
 ```
 
 ## Reference Library
+
+![H3 Reference Library manager with categories, filters, and managed references](media/reference-manager.png)
 
 The manager supports:
 
@@ -93,7 +97,7 @@ Updating or reinstalling the custom node does not remove this library.
 ## Updating
 
 ```bash
-cd ComfyUI/custom_nodes/ComfyUI-H3-Reference-Library
+cd ComfyUI/custom_nodes/ComfyUI-Minimax-H3-Reference-Library
 git pull
 ```
 
